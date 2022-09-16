@@ -13,19 +13,36 @@ template <typename T> T largest(std::vector<T> v) {
   return largest;
 }
 
-int main() {
-  std::vector<int> vint{8, 7, 4, 3, 5, 6, 1, 2};
-  std::vector vint2{8, 7, 4, 3, 5, 6, 1, 2};
-  std::vector vfloat{8.1f, 7.0f, 4.0f, 3.0f, 5.0f, 6.0f, 1.0f, 2.0f};
-  std::vector<double> vdouble{8.11111111222, 7.0, 4.0, 3.0, 5.0, 6.0, 1.0, 2.0};
-  std::vector<std::string> vstr{"abc", "def", "ghi", "jkl"};
-  std::vector<const char *> vcharptr{"abc", "def", "ghi", "jkl"};
+using namespace std;
 
-  std::cout << largest(vint) << std::endl;
-  std::cout << largest(vfloat) << std::endl;
-  std::cout << largest(vdouble) << std::endl;
-  std::cout << largest(vstr) << std::endl;
-  std::cout << largest(vcharptr) << std::endl;
+// Define a class with x, y class members and find Max in a set of classes
+// std::vector<A> vstructs{A{5, 3}, A{3, 21}, A{5, 9}};
+class A {
+  friend ostream &operator<<(ostream &os, const A &a);
+
+public:
+  int x;
+  int y;
+  A(int x, int y) : x(x), y(y) {}
+  // auto operator<=>(const A &rhs) const = default;
+};
+
+ostream &operator<<(ostream &os, const A &a) {
+  std::cout << "(" << a.x << ',' << a.y << ")"
+            << " ";
+  return os;
+}
+
+int main() {
+  std::vector<A> vstructs{A{5, 3}, A{3, 21}, A{5, 9}};
+  // largest.cpp:29:3: note: candidate template ignored: constraints not
+  // satisfied [with T = A] T largest(std::vector<T> v) requires Ordering<T> {
+  auto max = largest(vstructs);
+  std::cout << "Maximum is:" << max << "-> ";
+  for (auto s : vstructs) {
+    std::cout << s;
+  }
+  std::cout << std::endl;
 
   return 0;
 }

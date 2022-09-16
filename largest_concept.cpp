@@ -15,6 +15,7 @@ template <std::totally_ordered T> T largest(std::vector<T> v) {
 
 using namespace std;
 
+// Define a class with x, y class members and find Max in a set of classes
 class A {
   friend ostream &operator<<(ostream &os, const A &a);
 
