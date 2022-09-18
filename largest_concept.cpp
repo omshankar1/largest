@@ -23,7 +23,7 @@ public:
   int x;
   int y;
   A(int x, int y) : x(x), y(y) {}
-  auto operator<=>(const A &rhs) const = default;
+  // auto operator<=>(const A &rhs) const = default;
 };
 
 ostream &operator<<(ostream &os, const A &a) {
