@@ -5,8 +5,8 @@
 // make largest && ./bin/largest
 
 //*********************************************
-template <std::totally_ordered T> T largest(std::vector<T> v) {
-  // template <typename T> T largest(std::vector<T> v) {
+// template <std::totally_ordered T> T largest(std::vector<T> v) {
+template <typename T> T largest(std::vector<T> v) {
   auto largest = v[0];
   for (auto i = 0; i < v.size(); i++) {
     if (largest < v[i]) {
