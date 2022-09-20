@@ -19,9 +19,9 @@ template <typename T> T largest(std::vector<T> v) {
 using namespace std;
 
 //*********************************************
+// Problem: Find max in A{5, 3}, A{3, 21}, A{5, 9}
 // Define a class with members: x, y
 // We need to find the Max in a vector of class instances
-// std::vector<A> vstructs{A{5, 3}, A{3, 21}, A{5, 9}};
 class A {
   // ostream overload for Class A
   friend ostream &operator<<(ostream &os, const A &a);
